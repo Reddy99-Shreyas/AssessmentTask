@@ -1,0 +1,30 @@
+<template>
+
+    <lightning-card title="Products">
+
+        <div class="value-box">
+            <lightning-combobox label="Records per Page" value={pageSize} options={pageSizeOptions} onchange={handlePageSizeChange}></lightning-combobox>
+        </div>
+
+        <div style="text-align: center;">
+            <p style="font-weight: bold;"> Viewing {pageSize} records per page</p>
+        </div>
+
+        <div>
+            <lightning-datatable columns={columns} data={products} key-field="Id"></lightning-datatable>
+        </div>
+
+        <div class="button-container">
+            <lightning-button icon-name="utility:arrow_left" variant="brand" onclick={handleFirst} class={firstButtonClass} disabled={disableFirstButton}></lightning-button>
+            <lightning-button icon-name="utility:back" variant="brand" onclick={handlePrevious} class={previousButtonClass} disabled={disablePreviousButton}></lightning-button>
+            <lightning-button icon-name="utility:forward" variant="brand" onclick={handleNext} class={nextButtonClass} disabled={disableNextButton}></lightning-button>
+            <lightning-button icon-name="utility:arrow_right" variant="brand" onclick={handleLast} class={lastButtonClass} disabled={disableLastButton}></lightning-button>
+        </div>
+
+        <div style="text-align: center;">
+            <p style="font-weight: bold;"> Page {pageNumber} of {totalPages}</p>
+        </div>
+
+    </lightning-card>
+
+</template>
